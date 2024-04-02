@@ -88,5 +88,91 @@ namespace ABC_car_trade
             AddNewCar addNewCar = new AddNewCar();
             addNewCar.ShowDialog();
         }
+
+        private void refreshTable_Click(object sender, EventArgs e)
+        {
+            LoadDataToDataGridView();
+        }
+
+        private void btnDeleteRow_Click(object sender, EventArgs e)
+        {
+            if (DataGridForCars.SelectedRows.Count > 0)
+            {
+                int selectedIndex = DataGridForCars.SelectedRows[0].Index;
+                string selectedCarId = DataGridForCars.Rows[selectedIndex].Cells["id"].Value.ToString();
+
+                try
+                {
+                    using (MySqlConnection cnn = new MySqlConnection(connectionString))
+                    {
+                        cnn.Open();
+
+                        string sql = "DELETE FROM car_details WHERE id = @carId";
+
+                        using (MySqlCommand cmd = new MySqlCommand(sql, cnn))
+                        {
+                            cmd.Parameters.AddWithValue("@carId", selectedCarId);
+                            int rowsAffected = cmd.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Selected car record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LoadDataToDataGridView();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to delete selected car record.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a car record to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            if (DataGridForCars.SelectedRows.Count > 0)
+            {
+                int selectedIndex = DataGridForCars.SelectedRows[0].Index;
+                string selectedCarId = DataGridForCars.Rows[selectedIndex].Cells["id"].Value.ToString();
+
+                DataRow[] selectedCarRows = dataTable.Select($"id = {selectedCarId}");
+                if (selectedCarRows.Length > 0)
+                {
+                    string make = selectedCarRows[0]["make"].ToString();
+                    string model = selectedCarRows[0]["model"].ToString();
+                    int manufacturingYear = Convert.ToInt32(selectedCarRows[0]["manufacturing_year"]);
+                    decimal price = Convert.ToDecimal(selectedCarRows[0]["price"]);
+                    string color = selectedCarRows[0]["color"].ToString();
+                    decimal mileage = Convert.ToDecimal(selectedCarRows[0]["mileage"]);
+                    decimal engineCapacity = Convert.ToDecimal(selectedCarRows[0]["engine_type"]);
+                    string transmission = selectedCarRows[0]["transmission"].ToString();
+                    string fuelType = selectedCarRows[0]["fuel_type"].ToString();
+                    string description = selectedCarRows[0]["description"].ToString();
+                    string imageUrl = selectedCarRows[0]["image_url"].ToString();
+
+                    // Open the edit form and pass the selected car's data
+                    EditCarForm editCarForm = new EditCarForm(selectedCarId, make, model, manufacturingYear, price, color, mileage, engineCapacity, transmission, fuelType, description, imageUrl); 
+                    editCarForm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Selected car record not found in the data table.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a car record to edit.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
     }
 }

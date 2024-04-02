@@ -128,16 +128,17 @@ namespace ABC_car_trade
 
                     if (rowsAffected > 0)
                     {
-                        show_Error("Registration is Success! Please log in");
-                        SessionManager.SetLoggedInUser(email);
+                        show_Error("Registration is Success! Please log in"); 
 
                         Timer timer = new Timer();
                         timer.Interval = 3000;
                         timer.Tick += (s, args) =>
                         {
-                            DashBoard dashBoard = new DashBoard();
-                            dashBoard.Show();
+                            LoginForm loginForm = new LoginForm();  
+                            loginForm.Show();
                             this.Hide();
+
+
                             timer.Stop();
                         };
                         timer.Start();

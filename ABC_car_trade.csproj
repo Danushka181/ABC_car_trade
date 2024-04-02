@@ -57,17 +57,59 @@
     <Compile Include="AddNewCar.Designer.cs">
       <DependentUpon>AddNewCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddNewPartAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewPartAdmin.Designer.cs">
+      <DependentUpon>AddNewPartAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CarsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CarsList.Designer.cs">
+      <DependentUpon>CarsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildCarParts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildCarParts.Designer.cs">
+      <DependentUpon>ChildCarParts.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChildCars.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChildCars.Designer.cs">
       <DependentUpon>ChildCars.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChildCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildCustomers.Designer.cs">
+      <DependentUpon>ChildCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChildOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildOrders.Designer.cs">
+      <DependentUpon>ChildOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditCarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCarForm.Designer.cs">
+      <DependentUpon>EditCarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditCarPartAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditCarPartAdmin.Designer.cs">
+      <DependentUpon>EditCarPartAdmin.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -89,15 +131,72 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReportsChild.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportsChild.Designer.cs">
+      <DependentUpon>ReportsChild.cs</DependentUpon>
+    </Compile>
     <Compile Include="SessionManager.cs" />
+    <Compile Include="UserCars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserCars.Designer.cs">
+      <DependentUpon>UserCars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\CarListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User\CarListItem.Designer.cs">
+      <DependentUpon>CarListItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\OrderCars.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\OrderCars.Designer.cs">
+      <DependentUpon>OrderCars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserCarParts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserCarParts.Designer.cs">
+      <DependentUpon>UserCarParts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserDashboard.Designer.cs">
+      <DependentUpon>UserDashboard.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddNewCar.resx">
       <DependentUpon>AddNewCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewPartAdmin.resx">
+      <DependentUpon>AddNewPartAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CarsList.resx">
+      <DependentUpon>CarsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildCarParts.resx">
+      <DependentUpon>ChildCarParts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChildCars.resx">
       <DependentUpon>ChildCars.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChildCustomers.resx">
+      <DependentUpon>ChildCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildOrders.resx">
+      <DependentUpon>ChildOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCarForm.resx">
+      <DependentUpon>EditCarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditCarPartAdmin.resx">
+      <DependentUpon>EditCarPartAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -111,6 +210,24 @@
     </Content>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportsChild.resx">
+      <DependentUpon>ReportsChild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserCars.resx">
+      <DependentUpon>UserCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\CarListItem.resx">
+      <DependentUpon>CarListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\OrderCars.resx">
+      <DependentUpon>OrderCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserCarParts.resx">
+      <DependentUpon>UserCarParts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserDashboard.resx">
+      <DependentUpon>UserDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -166,5 +283,6 @@
   <ItemGroup>
     <None Include="Resources\parts.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

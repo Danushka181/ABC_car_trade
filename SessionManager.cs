@@ -9,12 +9,19 @@ namespace ABC_car_trade
     internal class SessionManager
     {
         private static string loggedInUser;
+        private static string userId;
 
         // logged in users property set
         public static string LoggedInUser
         {
             get { return loggedInUser; }
             set { loggedInUser = value; }
+        }
+
+        public static string UserId
+        {
+            get { return userId; }
+            set { userId = value; }
         }
 
         // check user already logged in function
@@ -24,9 +31,10 @@ namespace ABC_car_trade
         }
 
         // Method to set the logged in user
-        public static void SetLoggedInUser(string userName)
+        public static void SetLoggedInUser(string userName, string id)
         {
             loggedInUser = userName;
+            userId = id;
         }
 
         // Method to clear session

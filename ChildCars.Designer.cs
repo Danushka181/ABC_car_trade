@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.CarsMainLabel = new System.Windows.Forms.Label();
             this.DataGridForCars = new System.Windows.Forms.DataGridView();
+            this.SearchCars = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnAddNewCar = new System.Windows.Forms.Button();
+            this.refreshTable = new System.Windows.Forms.Button();
+            this.btnDeleteRow = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.make = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,10 +49,6 @@
             this.fuel_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mileage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.image_url = new System.Windows.Forms.DataGridViewImageColumn();
-            this.SearchCars = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnAddNewCar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridForCars)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,18 +66,21 @@
             // 
             // DataGridForCars
             // 
+            this.DataGridForCars.AllowUserToAddRows = false;
+            this.DataGridForCars.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.DataGridForCars.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.DataGridForCars.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
             this.DataGridForCars.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridForCars.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridForCars.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridForCars.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridForCars.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -88,95 +93,22 @@
             this.transmission,
             this.fuel_type,
             this.mileage,
-            this.description,
-            this.image_url});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridForCars.DefaultCellStyle = dataGridViewCellStyle4;
+            this.description});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridForCars.DefaultCellStyle = dataGridViewCellStyle2;
             this.DataGridForCars.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.DataGridForCars.Location = new System.Drawing.Point(29, 79);
             this.DataGridForCars.Name = "DataGridForCars";
             this.DataGridForCars.Size = new System.Drawing.Size(1076, 413);
             this.DataGridForCars.TabIndex = 1;
             this.DataGridForCars.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridForCars_CellContentClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            // 
-            // make
-            // 
-            this.make.DataPropertyName = "make";
-            this.make.HeaderText = "Make";
-            this.make.Name = "make";
-            // 
-            // model
-            // 
-            this.model.DataPropertyName = "model";
-            this.model.HeaderText = "Model";
-            this.model.Name = "model";
-            // 
-            // manufacturing_year
-            // 
-            this.manufacturing_year.DataPropertyName = "manufacturing_year";
-            this.manufacturing_year.HeaderText = "Year";
-            this.manufacturing_year.Name = "manufacturing_year";
-            // 
-            // price
-            // 
-            this.price.DataPropertyName = "price";
-            this.price.HeaderText = "Price";
-            this.price.Name = "price";
-            // 
-            // color
-            // 
-            this.color.DataPropertyName = "color";
-            this.color.HeaderText = "Color";
-            this.color.Name = "color";
-            // 
-            // engine_type
-            // 
-            this.engine_type.DataPropertyName = "engine_type";
-            this.engine_type.HeaderText = "Engine (CC)";
-            this.engine_type.Name = "engine_type";
-            // 
-            // transmission
-            // 
-            this.transmission.DataPropertyName = "transmission";
-            this.transmission.HeaderText = "Transmission";
-            this.transmission.Name = "transmission";
-            // 
-            // fuel_type
-            // 
-            this.fuel_type.DataPropertyName = "fuel_type";
-            this.fuel_type.HeaderText = "Fuel";
-            this.fuel_type.Name = "fuel_type";
-            // 
-            // mileage
-            // 
-            this.mileage.DataPropertyName = "mileage";
-            this.mileage.HeaderText = "Milage (KM)";
-            this.mileage.Name = "mileage";
-            // 
-            // description
-            // 
-            this.description.DataPropertyName = "description";
-            this.description.HeaderText = "Details";
-            this.description.Name = "description";
-            // 
-            // image_url
-            // 
-            this.image_url.DataPropertyName = "image_url";
-            this.image_url.HeaderText = "Photo";
-            this.image_url.Name = "image_url";
             // 
             // SearchCars
             // 
@@ -212,10 +144,129 @@
             this.btnAddNewCar.UseVisualStyleBackColor = false;
             this.btnAddNewCar.Click += new System.EventHandler(this.btnAddNewCar_Click);
             // 
+            // refreshTable
+            // 
+            this.refreshTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
+            this.refreshTable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshTable.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.refreshTable.Location = new System.Drawing.Point(29, 516);
+            this.refreshTable.Name = "refreshTable";
+            this.refreshTable.Size = new System.Drawing.Size(118, 46);
+            this.refreshTable.TabIndex = 5;
+            this.refreshTable.Text = "Refresh";
+            this.refreshTable.UseVisualStyleBackColor = false;
+            this.refreshTable.Click += new System.EventHandler(this.refreshTable_Click);
+            // 
+            // btnDeleteRow
+            // 
+            this.btnDeleteRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
+            this.btnDeleteRow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteRow.ForeColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteRow.Location = new System.Drawing.Point(792, 516);
+            this.btnDeleteRow.Name = "btnDeleteRow";
+            this.btnDeleteRow.Size = new System.Drawing.Size(118, 46);
+            this.btnDeleteRow.TabIndex = 6;
+            this.btnDeleteRow.Text = "Delete";
+            this.btnDeleteRow.UseVisualStyleBackColor = false;
+            this.btnDeleteRow.Click += new System.EventHandler(this.btnDeleteRow_Click);
+            // 
+            // editButton
+            // 
+            this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
+            this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editButton.ForeColor = System.Drawing.Color.DarkGray;
+            this.editButton.Location = new System.Drawing.Point(650, 516);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(118, 46);
+            this.editButton.TabIndex = 7;
+            this.editButton.Text = "Edit";
+            this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.Width = 69;
+            // 
+            // make
+            // 
+            this.make.DataPropertyName = "make";
+            this.make.HeaderText = "Make";
+            this.make.Name = "make";
+            this.make.Width = 94;
+            // 
+            // model
+            // 
+            this.model.DataPropertyName = "model";
+            this.model.HeaderText = "Model";
+            this.model.Name = "model";
+            this.model.Width = 99;
+            // 
+            // manufacturing_year
+            // 
+            this.manufacturing_year.DataPropertyName = "manufacturing_year";
+            this.manufacturing_year.HeaderText = "Year";
+            this.manufacturing_year.Name = "manufacturing_year";
+            this.manufacturing_year.Width = 87;
+            // 
+            // price
+            // 
+            this.price.DataPropertyName = "price";
+            this.price.HeaderText = "Price";
+            this.price.Name = "price";
+            this.price.Width = 92;
+            // 
+            // color
+            // 
+            this.color.DataPropertyName = "color";
+            this.color.HeaderText = "Color";
+            this.color.Name = "color";
+            this.color.Width = 95;
+            // 
+            // engine_type
+            // 
+            this.engine_type.DataPropertyName = "engine_type";
+            this.engine_type.HeaderText = "Engine (CC)";
+            this.engine_type.Name = "engine_type";
+            this.engine_type.Width = 135;
+            // 
+            // transmission
+            // 
+            this.transmission.DataPropertyName = "transmission";
+            this.transmission.HeaderText = "Transmission";
+            this.transmission.Name = "transmission";
+            this.transmission.Width = 155;
+            // 
+            // fuel_type
+            // 
+            this.fuel_type.DataPropertyName = "fuel_type";
+            this.fuel_type.HeaderText = "Fuel";
+            this.fuel_type.Name = "fuel_type";
+            this.fuel_type.Width = 85;
+            // 
+            // mileage
+            // 
+            this.mileage.DataPropertyName = "mileage";
+            this.mileage.HeaderText = "Milage (KM)";
+            this.mileage.Name = "mileage";
+            this.mileage.Width = 134;
+            // 
+            // description
+            // 
+            this.description.DataPropertyName = "description";
+            this.description.HeaderText = "Details";
+            this.description.Name = "description";
+            this.description.Width = 105;
+            // 
             // ChildCars
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(1134, 591);
+            this.Controls.Add(this.editButton);
+            this.Controls.Add(this.btnDeleteRow);
+            this.Controls.Add(this.refreshTable);
             this.Controls.Add(this.btnAddNewCar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchCars);
@@ -234,6 +285,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label CarsMainLabel;
         private System.Windows.Forms.DataGridView DataGridForCars;
+        private System.Windows.Forms.TextBox SearchCars;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAddNewCar;
+        private System.Windows.Forms.Button refreshTable;
+        private System.Windows.Forms.Button btnDeleteRow;
+        private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn make;
         private System.Windows.Forms.DataGridViewTextBoxColumn model;
@@ -245,9 +302,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fuel_type;
         private System.Windows.Forms.DataGridViewTextBoxColumn mileage;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
-        private System.Windows.Forms.DataGridViewImageColumn image_url;
-        private System.Windows.Forms.TextBox SearchCars;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnAddNewCar;
     }
 }

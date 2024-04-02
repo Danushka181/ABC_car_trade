@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ABC_car_trade.User;
 using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
@@ -53,12 +54,17 @@ namespace ABC_car_trade
         {
             MySqlConnection cnn = new MySqlConnection(connectionString);
 
-            DashBoard dashBoard1 = new DashBoard();
-            dashBoard1.Show();
-            this.Hide();
+            //UserDashboard userDashboard1 = new UserDashboard();
+            //userDashboard1.Show();
+            //this.Hide();
+
+            //DashBoard dashBoard1 = new DashBoard();
+            //dashBoard1.Show();
+            //this.Hide();
 
             String userName = txtUserName.Text;
             String password = txtPassword.Text;
+            int userRole;
 
             if ( userName == "" )
             {
@@ -84,26 +90,55 @@ namespace ABC_car_trade
                 {
 
                     // set parameters using cmd parameters
-                    cmd.Parameters.AddWithValue("@UserName", userName);
-                    cmd.Parameters.AddWithValue("@Password", EncodePasswordToBase64(password));
+                    cmd.Parameters.AddWithValue("@UserName", userName.Trim());
+                    cmd.Parameters.AddWithValue("@Password", EncodePasswordToBase64(password.Trim()));
                      
                     int count = Convert.ToInt32(cmd.ExecuteScalar());
 
                     if (count > 0)
                     {
-                        show_Error("Authenticating..");
-                        SessionManager.SetLoggedInUser(userName);
+                        show_Error("Authenticating.."); 
 
-                        Timer timer = new Timer();
-                        timer.Interval = 3000;
-                        timer.Tick += (s, args) =>
+                        using (MySqlCommand roleCmd = new MySqlCommand())
                         {
-                            DashBoard dashBoard = new DashBoard();
-                            dashBoard.Show();
-                            this.Hide();
-                            timer.Stop();
-                        };
-                        timer.Start();
+                            roleCmd.Connection = cnn;
+                            roleCmd.CommandText = "SELECT user_role, id FROM users WHERE email = @UserName";
+                            roleCmd.Parameters.AddWithValue("@UserName", userName.Trim());
+
+                            using (MySqlDataReader reader = roleCmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    // Retrieve user_role and id from the reader
+                                    userRole = Convert.ToInt32(reader["user_role"]);
+                                    string userId = reader["id"].ToString();
+
+                                    // Set user role and ID in SessionManager
+                                    SessionManager.SetLoggedInUser(userName, userId);
+
+                                    // Continue with authentication logic...
+                                    Timer timer = new Timer();
+                                    timer.Interval = 3000;
+                                    timer.Tick += (s, args) =>
+                                    {
+                                        if (userRole == 0)
+                                        {
+                                            UserDashboard userDashboard = new UserDashboard();
+                                            userDashboard.Show();
+                                        }
+                                        else
+                                        {
+                                            DashBoard dashBoard = new DashBoard();
+                                            dashBoard.Show();
+                                        }
+                                        this.Hide();
+                                        timer.Stop();
+                                    };
+                                    timer.Start();
+                                }
+                            }
+                             
+                        }
                     }
                     else
                     {

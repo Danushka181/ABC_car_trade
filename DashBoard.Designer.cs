@@ -121,7 +121,7 @@ namespace ABC_car_trade
             this.btnCustomersMenuItem.TabIndex = 44;
             this.btnCustomersMenuItem.Text = "                       ";
             this.btnCustomersMenuItem.UseVisualStyleBackColor = false;
-            this.btnCustomersMenuItem.Click += new System.EventHandler(this.button2_Click_1);
+            this.btnCustomersMenuItem.Click += new System.EventHandler(this.btnCustomersMenuItem_Click);
             // 
             // btnOrdersMenuItem
             // 
@@ -136,6 +136,7 @@ namespace ABC_car_trade
             this.btnOrdersMenuItem.TabIndex = 45;
             this.btnOrdersMenuItem.Text = "                       ";
             this.btnOrdersMenuItem.UseVisualStyleBackColor = false;
+            this.btnOrdersMenuItem.Click += new System.EventHandler(this.btnOrdersMenuItem_Click);
             // 
             // btnReportsMenuItem
             // 
@@ -150,6 +151,7 @@ namespace ABC_car_trade
             this.btnReportsMenuItem.TabIndex = 46;
             this.btnReportsMenuItem.Text = "                       ";
             this.btnReportsMenuItem.UseVisualStyleBackColor = false;
+            this.btnReportsMenuItem.Click += new System.EventHandler(this.btnReportsMenuItem_Click);
             // 
             // MainChildPanel
             // 
@@ -179,7 +181,7 @@ namespace ABC_car_trade
             this.MinimumSize = new System.Drawing.Size(1223, 847);
             this.Name = "DashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = " Admin Dashboard";
             this.Load += new System.EventHandler(this.DashBoard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ABCLogoImage)).EndInit();
             this.ResumeLayout(false);

@@ -35,7 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.fieldPrice = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.fieldCalenderYear = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.fieldColor = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,6 +48,13 @@
             this.fieldTransmissions = new System.Windows.Forms.ComboBox();
             this.fieldFuels = new System.Windows.Forms.ComboBox();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
+            this.manufatureYear = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.fieldEngineCapacity = new System.Windows.Forms.TextBox();
+            this.carImage = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.addImage = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.carImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -128,20 +134,6 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Year";
             // 
-            // fieldCalenderYear
-            // 
-            this.fieldCalenderYear.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
-            this.fieldCalenderYear.CalendarTitleForeColor = System.Drawing.Color.White;
-            this.fieldCalenderYear.CustomFormat = "yyyy";
-            this.fieldCalenderYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fieldCalenderYear.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fieldCalenderYear.Location = new System.Drawing.Point(42, 196);
-            this.fieldCalenderYear.MaxDate = new System.DateTime(2024, 3, 28, 0, 0, 0, 0);
-            this.fieldCalenderYear.Name = "fieldCalenderYear";
-            this.fieldCalenderYear.Size = new System.Drawing.Size(288, 26);
-            this.fieldCalenderYear.TabIndex = 12;
-            this.fieldCalenderYear.Value = new System.DateTime(2024, 3, 28, 0, 0, 0, 0);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -161,7 +153,7 @@
             this.fieldColor.ForeColor = System.Drawing.Color.White;
             this.fieldColor.Location = new System.Drawing.Point(46, 280);
             this.fieldColor.Name = "fieldColor";
-            this.fieldColor.Size = new System.Drawing.Size(283, 26);
+            this.fieldColor.Size = new System.Drawing.Size(124, 26);
             this.fieldColor.TabIndex = 13;
             // 
             // label6
@@ -169,7 +161,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(359, 247);
+            this.label6.Location = new System.Drawing.Point(189, 247);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 20);
             this.label6.TabIndex = 16;
@@ -181,9 +173,9 @@
             this.fieldMilage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fieldMilage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fieldMilage.ForeColor = System.Drawing.Color.White;
-            this.fieldMilage.Location = new System.Drawing.Point(363, 280);
+            this.fieldMilage.Location = new System.Drawing.Point(193, 280);
             this.fieldMilage.Name = "fieldMilage";
-            this.fieldMilage.Size = new System.Drawing.Size(283, 26);
+            this.fieldMilage.Size = new System.Drawing.Size(239, 26);
             this.fieldMilage.TabIndex = 15;
             // 
             // fieldDescriptionLabel
@@ -191,7 +183,7 @@
             this.fieldDescriptionLabel.AutoSize = true;
             this.fieldDescriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fieldDescriptionLabel.ForeColor = System.Drawing.Color.White;
-            this.fieldDescriptionLabel.Location = new System.Drawing.Point(42, 395);
+            this.fieldDescriptionLabel.Location = new System.Drawing.Point(365, 397);
             this.fieldDescriptionLabel.Name = "fieldDescriptionLabel";
             this.fieldDescriptionLabel.Size = new System.Drawing.Size(89, 20);
             this.fieldDescriptionLabel.TabIndex = 22;
@@ -203,10 +195,10 @@
             this.fieldDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fieldDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fieldDescription.ForeColor = System.Drawing.Color.White;
-            this.fieldDescription.Location = new System.Drawing.Point(46, 428);
+            this.fieldDescription.Location = new System.Drawing.Point(363, 434);
             this.fieldDescription.Multiline = true;
             this.fieldDescription.Name = "fieldDescription";
-            this.fieldDescription.Size = new System.Drawing.Size(600, 75);
+            this.fieldDescription.Size = new System.Drawing.Size(283, 155);
             this.fieldDescription.TabIndex = 21;
             // 
             // btnSaveCar
@@ -215,7 +207,7 @@
             this.btnSaveCar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveCar.ForeColor = System.Drawing.Color.White;
-            this.btnSaveCar.Location = new System.Drawing.Point(478, 566);
+            this.btnSaveCar.Location = new System.Drawing.Point(478, 652);
             this.btnSaveCar.Name = "btnSaveCar";
             this.btnSaveCar.Size = new System.Drawing.Size(168, 46);
             this.btnSaveCar.TabIndex = 23;
@@ -230,7 +222,7 @@
             this.btnCancelSaveCar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelSaveCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelSaveCar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnCancelSaveCar.Location = new System.Drawing.Point(286, 566);
+            this.btnCancelSaveCar.Location = new System.Drawing.Point(286, 652);
             this.btnCancelSaveCar.Name = "btnCancelSaveCar";
             this.btnCancelSaveCar.Size = new System.Drawing.Size(168, 46);
             this.btnCancelSaveCar.TabIndex = 24;
@@ -243,7 +235,7 @@
             this.lblErrorSave.AutoSize = true;
             this.lblErrorSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorSave.ForeColor = System.Drawing.Color.White;
-            this.lblErrorSave.Location = new System.Drawing.Point(46, 518);
+            this.lblErrorSave.Location = new System.Drawing.Point(46, 604);
             this.lblErrorSave.Name = "lblErrorSave";
             this.lblErrorSave.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblErrorSave.Size = new System.Drawing.Size(0, 23);
@@ -319,14 +311,138 @@
             this.fieldFuels.TabIndex = 28;
             this.fieldFuels.Text = "Vehicle Fuel Type";
             // 
+            // manufatureYear
+            // 
+            this.manufatureYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
+            this.manufatureYear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.manufatureYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manufatureYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manufatureYear.ForeColor = System.Drawing.Color.White;
+            this.manufatureYear.FormattingEnabled = true;
+            this.manufatureYear.Items.AddRange(new object[] {
+            "1980",
+            "1981",
+            "1982",
+            "1983",
+            "1984",
+            "1985",
+            "1986",
+            "1987",
+            "1988",
+            "1989",
+            "1990",
+            "1991",
+            "1992",
+            "1993",
+            "1994",
+            "1995",
+            "1996",
+            "1997",
+            "1998",
+            "1999",
+            "2000",
+            "2001",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023"});
+            this.manufatureYear.Location = new System.Drawing.Point(46, 196);
+            this.manufatureYear.Name = "manufatureYear";
+            this.manufatureYear.Size = new System.Drawing.Size(284, 28);
+            this.manufatureYear.TabIndex = 29;
+            this.manufatureYear.Text = "Manufacture Year";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(456, 247);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(160, 20);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Engine Capacity (CC)";
+            // 
+            // fieldEngineCapacity
+            // 
+            this.fieldEngineCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
+            this.fieldEngineCapacity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fieldEngineCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fieldEngineCapacity.ForeColor = System.Drawing.Color.White;
+            this.fieldEngineCapacity.Location = new System.Drawing.Point(460, 280);
+            this.fieldEngineCapacity.Name = "fieldEngineCapacity";
+            this.fieldEngineCapacity.Size = new System.Drawing.Size(186, 26);
+            this.fieldEngineCapacity.TabIndex = 30;
+            // 
+            // carImage
+            // 
+            this.carImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.carImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.carImage.ImageLocation = "";
+            this.carImage.Location = new System.Drawing.Point(46, 434);
+            this.carImage.Name = "carImage";
+            this.carImage.Size = new System.Drawing.Size(284, 155);
+            this.carImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.carImage.TabIndex = 32;
+            this.carImage.TabStop = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(42, 397);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(110, 20);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "Vehicle Image";
+            // 
+            // addImage
+            // 
+            this.addImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
+            this.addImage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addImage.ForeColor = System.Drawing.Color.White;
+            this.addImage.Location = new System.Drawing.Point(233, 552);
+            this.addImage.Name = "addImage";
+            this.addImage.Size = new System.Drawing.Size(97, 37);
+            this.addImage.TabIndex = 34;
+            this.addImage.Text = "Add Image";
+            this.addImage.UseVisualStyleBackColor = false;
+            this.addImage.Click += new System.EventHandler(this.addImage_Click);
+            // 
             // AddNewCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(19)))), ((int)(((byte)(47)))));
             this.CancelButton = this.btnCancelSaveCar;
-            this.ClientSize = new System.Drawing.Size(689, 657);
+            this.ClientSize = new System.Drawing.Size(689, 766);
             this.ControlBox = false;
+            this.Controls.Add(this.addImage);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.carImage);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.fieldEngineCapacity);
+            this.Controls.Add(this.manufatureYear);
             this.Controls.Add(this.fieldFuels);
             this.Controls.Add(this.fieldTransmissions);
             this.Controls.Add(this.fieldVehicleMake);
@@ -339,7 +455,6 @@
             this.Controls.Add(this.fieldMilage);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.fieldColor);
-            this.Controls.Add(this.fieldCalenderYear);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.fieldPrice);
@@ -358,6 +473,7 @@
             this.Text = "Add New Car";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.AddNewCar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.carImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,7 +488,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox fieldPrice;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker fieldCalenderYear;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox fieldColor;
         private System.Windows.Forms.Label label6;
@@ -386,5 +501,11 @@
         private System.Windows.Forms.ComboBox fieldTransmissions;
         private System.Windows.Forms.ComboBox fieldFuels;
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
+        private System.Windows.Forms.ComboBox manufatureYear;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox fieldEngineCapacity;
+        private System.Windows.Forms.PictureBox carImage;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button addImage;
     }
 }

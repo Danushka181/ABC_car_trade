@@ -162,6 +162,7 @@
             // 
             // btnBackButton
             // 
+            this.btnBackButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBackButton.BackgroundImage")));
             this.btnBackButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBackButton.FlatAppearance.BorderSize = 0;
             this.btnBackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
