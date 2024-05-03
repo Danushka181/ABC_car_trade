@@ -145,7 +145,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "OrderCars";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Order Car";
+            this.Load += new System.EventHandler(this.OrderCars_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

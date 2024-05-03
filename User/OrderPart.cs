@@ -1,50 +1,47 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO.Ports;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ABC_car_trade.User
 {
-    public partial class OrderCars : Form
+    public partial class OrderPart : Form
     {
-        public String CarId {  get; set; }
-        public String CarPrice { get; set; }
-        public String CarTotal { get; set; }
+        public String PartId { get; set; }
+        public String Price { get; set; }
+        public String Total { get; set; }
 
         public String fullAmount { get; set; }
 
-
         string connectionString = DatabaseConnection.GetConnectionString();
 
-        public OrderCars( string CarId, string carPrice)
+        public OrderPart(string PartId, string carPrice)
         {
             InitializeComponent();
 
-            this.CarId = CarId;
-            this.CarPrice = carPrice;
+            this.PartId = PartId;
+            this.Price = carPrice;
             fullAmount = carPrice;
-
-            loadCarData(); 
+            
+            loadPartData();
         }
 
-
-        private void loadCarData()
+        private void loadPartData()
         {
             quantityBox.SelectedIndex = quantityBox.FindString("1");
-            totalPrice.Text = CarPrice;
-            fullAmount = CarPrice;
+            totalPrice.Text = Price;
+            fullAmount = Price;
+        }
+
+        private void OrderPart_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnOrderItem_Click(object sender, EventArgs e)
@@ -63,20 +60,18 @@ namespace ABC_car_trade.User
 
             try
             {
-                SaveDataToDatabase(userId, null, this.CarId, OrderDate, quantity, fullAmount, "Pending", Address);
+                SaveDataToDatabase(userId, this.PartId, null, OrderDate, quantity, fullAmount, "Pending", Address);
                 show_Error("Order created Successfully!");
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("Something went wrong!");
             }
-
-
         }
 
-        public void SaveDataToDatabase( string userID, string partId, string carId, DateTime date, string qty, string amount, string status, string address )
+        public void SaveDataToDatabase(string userID, string partId, string carId, DateTime date, string qty, string amount, string status, string address)
         {
             using (MySqlConnection cnn = new MySqlConnection(connectionString))
             {
@@ -109,7 +104,7 @@ namespace ABC_car_trade.User
                         Timer timer = new Timer();
                         timer.Interval = 3000;
                         timer.Tick += (s, args) =>
-                        { 
+                        {
                             timer.Stop();
                             this.Close();
                         };
@@ -125,6 +120,25 @@ namespace ABC_car_trade.User
             }
         }
 
+        private void quantityBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            String Quantity = quantityBox.SelectedItem.ToString();
+            if (string.IsNullOrEmpty(Quantity))
+            {
+                show_Error("Please select Quantity");
+                return;
+            }
+
+            decimal quantity = decimal.Parse(Quantity);
+            decimal partPrice = decimal.Parse(Price);
+
+            decimal carTotal = quantity * partPrice;
+
+            Total = carTotal.ToString();
+
+            totalPrice.Text = Total.ToString();
+
+        }
 
         private void show_Error(String msg)
         {
@@ -139,31 +153,6 @@ namespace ABC_car_trade.User
             };
             timer.Start();
         }
-
-        private void quantityBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String Quantity =  quantityBox.SelectedItem.ToString();
-            if (string.IsNullOrEmpty(Quantity))
-            {
-                show_Error("Please select Quantity");
-                return;
-            }
-
-            decimal quantity = decimal.Parse(Quantity);
-            decimal carPrice = decimal.Parse(CarPrice);
-
-            decimal carTotal = quantity * carPrice; 
-
-            CarTotal = carTotal.ToString(); 
-
-            totalPrice.Text = CarTotal.ToString();
-
          
-        }
-
-        private void OrderCars_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

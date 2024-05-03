@@ -103,5 +103,10 @@ namespace ABC_car_trade
             MainChildPanel.Controls.Add(childReports);
             childReports.Show();
         }
+
+        private void MainChildPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

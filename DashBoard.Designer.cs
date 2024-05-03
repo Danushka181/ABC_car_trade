@@ -159,6 +159,7 @@ namespace ABC_car_trade
             this.MainChildPanel.Name = "MainChildPanel";
             this.MainChildPanel.Size = new System.Drawing.Size(1150, 630);
             this.MainChildPanel.TabIndex = 47;
+            this.MainChildPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainChildPanel_Paint);
             // 
             // DashBoard
             // 

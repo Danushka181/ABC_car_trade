@@ -99,6 +99,7 @@
     <Compile Include="DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="EditCarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,11 +112,35 @@
     <Compile Include="EditCarPartAdmin.Designer.cs">
       <DependentUpon>EditCarPartAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="User\CarPartListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User\CarPartListItem.Designer.cs">
+      <DependentUpon>CarPartListItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\OrderItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User\OrderItem.Designer.cs">
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\OrderPart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="User\OrderPart.Designer.cs">
+      <DependentUpon>OrderPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\UserOrderStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserOrderStatus.Designer.cs">
+      <DependentUpon>UserOrderStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WelcomeScreen.Designer.cs">
+      <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -198,8 +223,20 @@
     <EmbeddedResource Include="EditCarPartAdmin.resx">
       <DependentUpon>EditCarPartAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="User\CarPartListItem.resx">
+      <DependentUpon>CarPartListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\OrderItem.resx">
+      <DependentUpon>OrderItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\OrderPart.resx">
+      <DependentUpon>OrderPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserOrderStatus.resx">
+      <DependentUpon>UserOrderStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelcomeScreen.resx">
+      <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

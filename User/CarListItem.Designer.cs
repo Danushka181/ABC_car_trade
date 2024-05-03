@@ -120,6 +120,7 @@
             this.Controls.Add(this.pbCarImage);
             this.Name = "CarListItem";
             this.Size = new System.Drawing.Size(1075, 150);
+            this.Load += new System.EventHandler(this.CarListItem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbCarImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

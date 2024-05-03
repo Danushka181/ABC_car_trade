@@ -18,7 +18,7 @@ namespace ABC_car_trade
     public partial class LoginForm : Form
     {
 
-        string connectionString = "Server=localhost;Database=abcCarTrade;Uid=superAdmin;Pwd=superAdmin@2023;";
+        string connectionString = DatabaseConnection.GetConnectionString();
 
 
         public LoginForm()
@@ -54,21 +54,12 @@ namespace ABC_car_trade
         {
             MySqlConnection cnn = new MySqlConnection(connectionString);
 
-            //UserDashboard userDashboard1 = new UserDashboard();
-            //userDashboard1.Show();
-            //this.Hide();
-
-            //DashBoard dashBoard1 = new DashBoard();
-            //dashBoard1.Show();
-            //this.Hide();
-
             String userName = txtUserName.Text;
             String password = txtPassword.Text;
             int userRole;
 
             if ( userName == "" )
             {
-
                 show_Error("User name is required and cannot be empty!");
                 return;
             }
@@ -172,6 +163,10 @@ namespace ABC_car_trade
             timer.Start();
         }
 
+        /** 
+         * Password encription
+         * @param String password
+         */
         public static string EncodePasswordToBase64(string password)
         {
             byte[] bytes = Encoding.Unicode.GetBytes(password);

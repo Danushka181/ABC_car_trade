@@ -37,7 +37,7 @@ namespace ABC_car_trade
                 {
                     cnn.Open();
 
-                    string sql = "SELECT name, email, phone, address, date  FROM users WHERE user_role=0";
+                    string sql = "SELECT id, name, email, phone, address, date  FROM users WHERE user_role=0";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, cnn))
                     {

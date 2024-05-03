@@ -28,7 +28,7 @@ namespace ABC_car_trade
         private String description;
         private String imageUrl;
 
-        string connectionString = "Server=localhost;Database=abcCarTrade;Uid=superAdmin;Pwd=superAdmin@2023;";
+        string connectionString = DatabaseConnection.GetConnectionString();
 
         String carImagePath = null;
 

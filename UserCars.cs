@@ -1,13 +1,8 @@
 ﻿using ABC_car_trade.User;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ABC_car_trade
@@ -15,7 +10,7 @@ namespace ABC_car_trade
     public partial class UserCars : Form
     {
 
-        string connectionString = "Server=localhost;Database=abcCarTrade;Uid=superAdmin;Pwd=superAdmin@2023;";
+        string connectionString = DatabaseConnection.GetConnectionString();
 
         public UserCars()
         {
@@ -41,7 +36,7 @@ namespace ABC_car_trade
 
                     // Check if search criteria is available
                     if (!string.IsNullOrWhiteSpace(SearchCars.Text))
-                    { 
+                    {
                         sql += " WHERE make LIKE @SearchTerm OR model LIKE @SearchTerm OR price LIKE @SearchTerm";
                     }
 
@@ -59,7 +54,7 @@ namespace ABC_car_trade
                             DataTable dataTable = new DataTable();
                             adapter.Fill(dataTable);
 
-                            flowLayoutCars.Controls.Clear();    
+                            flowLayoutCars.Controls.Clear();
 
                             foreach (DataRow row in dataTable.Rows)
                             {
@@ -86,8 +81,6 @@ namespace ABC_car_trade
 
                                 flowLayoutCars.Controls.Add(carListItem);
 
-                                // Add the custom control to the FlowLayoutPanel
-                                //flowLayoutPanel1.Controls.Add(customControl);
                             }
 
                         }

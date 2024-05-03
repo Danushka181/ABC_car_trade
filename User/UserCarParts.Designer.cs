@@ -61,6 +61,7 @@
             this.SearchCarParts.Name = "SearchCarParts";
             this.SearchCarParts.Size = new System.Drawing.Size(214, 20);
             this.SearchCarParts.TabIndex = 16;
+            this.SearchCarParts.TextChanged += new System.EventHandler(this.SearchCarParts_TextChanged);
             // 
             // CarsMainLabel
             // 

@@ -15,7 +15,7 @@ namespace ABC_car_trade
     public partial class AddNewCar : Form
     {
 
-        string connectionString = "Server=localhost;Database=abcCarTrade;Uid=superAdmin;Pwd=superAdmin@2023;";
+        string connectionString = DatabaseConnection.GetConnectionString();
 
         String carImagePath = null;
 

@@ -1,12 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ABC_car_trade
@@ -14,7 +8,7 @@ namespace ABC_car_trade
     public partial class AddNewPartAdmin : Form
     {
 
-        string connectionString = "Server=localhost;Database=abcCarTrade;Uid=superAdmin;Pwd=superAdmin@2023;";
+        string connectionString = DatabaseConnection.GetConnectionString();
 
         String PartImagePath = null;
 
@@ -43,7 +37,7 @@ namespace ABC_car_trade
                 show_Error("Please add a Name to Part");
                 return;
             }
-            
+
             string _partCode = partCode.Text;
             if (string.IsNullOrEmpty(_partCode))
             {
@@ -58,7 +52,7 @@ namespace ABC_car_trade
 
                 string query = "INSERT INTO car_parts_details (part_name, part_category, part_description, part_price, part_quantity, part_supplier, part_code, suitable_vehicle_model, warranty_period, part_image_url) " +
                                "VALUES (@Name, @cat, @desc, @price, @qty, @supl,@code, @vmodel, @warrenty, @img)";
-                MySqlCommand command = new MySqlCommand(query, cnn); 
+                MySqlCommand command = new MySqlCommand(query, cnn);
 
                 command.Parameters.AddWithValue("@Name", _partName);
                 command.Parameters.AddWithValue("@cat", _partCategory);
@@ -88,8 +82,6 @@ namespace ABC_car_trade
             {
                 cnn.Close();
             }
-
-
         }
 
         private void show_Error(String msg)

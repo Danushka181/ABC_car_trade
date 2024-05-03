@@ -75,6 +75,7 @@
             this.btnOrdersMenuItem.TabIndex = 50;
             this.btnOrdersMenuItem.Text = "                       ";
             this.btnOrdersMenuItem.UseVisualStyleBackColor = false;
+            this.btnOrdersMenuItem.Click += new System.EventHandler(this.btnOrdersMenuItem_Click);
             // 
             // btnCarPartsMenuItem
             // 
@@ -117,6 +118,7 @@
             this.btnLogoutBtn.Size = new System.Drawing.Size(90, 31);
             this.btnLogoutBtn.TabIndex = 52;
             this.btnLogoutBtn.UseVisualStyleBackColor = true;
+            this.btnLogoutBtn.Click += new System.EventHandler(this.btnLogoutBtn_Click);
             // 
             // MainChildPanel
             // 

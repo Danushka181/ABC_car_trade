@@ -14,7 +14,7 @@ namespace ABC_car_trade
     public partial class ChildCars : Form
     {
 
-        string connectionString = "Server=localhost;Database=abcCarTrade;Uid=superAdmin;Pwd=superAdmin@2023;";
+        string connectionString = DatabaseConnection.GetConnectionString();
         private DataTable dataTable;
 
         public ChildCars()

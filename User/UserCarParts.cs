@@ -14,7 +14,7 @@ namespace ABC_car_trade.User
     public partial class UserCarParts : Form
     {
 
-        string connectionString = "Server=localhost;Database=abcCarTrade;Uid=superAdmin;Pwd=superAdmin@2023;";
+        string connectionString = DatabaseConnection.GetConnectionString();
 
         public UserCarParts()
         {
@@ -61,31 +61,27 @@ namespace ABC_car_trade.User
 
                             foreach (DataRow row in dataTable.Rows)
                             {
-                                String CarName = row["part_name"].ToString();
-                                String CarModel = row["part_category"].ToString();
-                                String CarDesc = row["part_description"].ToString();
+                                String Name = row["part_name"].ToString();
+                                String Caegory = row["part_category"].ToString();
+                                String Desc = row["part_description"].ToString();
                                 String ImagePath = row["part_image_url"].ToString();
-                                String CarMilage = row["part_code"].ToString();
-                                String CarPrice = row["part_price"].ToString();
+                                String Code = row["part_code"].ToString();
+                                String Price = row["part_price"].ToString();
 
                                 CarListItem carListItem = new CarListItem();
 
-                                carListItem.CarName = CarModel+" - "+CarName;
-                                carListItem.CarDesc = CarDesc;
-                                carListItem.CarMilage = "CODE : "+CarMilage;
-                                carListItem.CarPrice = CarPrice+" RS";
-                                carListItem.CarPiceValue = CarPrice;
-
-                                carListItem.CarId = row["id"].ToString();
-
-                                carListItem.CarImage = Image.FromFile(ImagePath);
-
-                                carListItem.Width = flowLayoutCarParts.Width;
-
-                                flowLayoutCarParts.Controls.Add(carListItem);
-
-                                // Add the custom control to the FlowLayoutPanel
-                                //flowLayoutPanel1.Controls.Add(customControl);
+                                CarPartListItem partListItem = new CarPartListItem();
+                                // showing data
+                                partListItem.PartName       = Caegory+" - "+Name;
+                                partListItem.Desc           = Desc;
+                                partListItem.Code           = "CODE : "+Code;
+                                partListItem.Price          = Price+" RS";
+                                partListItem.CarPiceValue   = Price;
+                                // process data
+                                partListItem.PartId         = row["id"].ToString();
+                                partListItem.ImagePath      = Image.FromFile(ImagePath);
+                                partListItem.Width          = flowLayoutCarParts.Width;
+                                flowLayoutCarParts.Controls.Add(partListItem); 
                             }
 
                         }
@@ -96,6 +92,12 @@ namespace ABC_car_trade.User
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        // Filter data when user searching something
+        private void SearchCarParts_TextChanged(object sender, EventArgs e)
+        {
+            LoadDataToDataGridView();
         }
     }
 }
