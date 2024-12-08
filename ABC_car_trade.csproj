@@ -112,6 +112,12 @@
     <Compile Include="EditCarPartAdmin.Designer.cs">
       <DependentUpon>EditCarPartAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\CarPartListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditCarPartAdmin.resx">
       <DependentUpon>EditCarPartAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User\CarPartListItem.resx">
       <DependentUpon>CarPartListItem.cs</DependentUpon>

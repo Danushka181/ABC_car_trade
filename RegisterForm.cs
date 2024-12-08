@@ -71,9 +71,6 @@ namespace ABC_car_trade
                 return;
             }
 
-
-
-
             // Collect user input
             string fullName = txtUserFullName.Text;
             string email = txtUserEmail.Text;

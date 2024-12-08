@@ -52,6 +52,7 @@
             this.flowLayoutCars.Name = "flowLayoutCars";
             this.flowLayoutCars.Size = new System.Drawing.Size(1076, 480);
             this.flowLayoutCars.TabIndex = 8;
+            this.flowLayoutCars.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutCars_Paint);
             // 
             // SearchCars
             // 

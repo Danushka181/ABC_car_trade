@@ -97,5 +97,10 @@ namespace ABC_car_trade
         {
             LoadDataToDataGridView();
         }
+
+        private void flowLayoutCars_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

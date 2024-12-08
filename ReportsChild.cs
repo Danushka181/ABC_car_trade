@@ -21,5 +21,15 @@ namespace ABC_car_trade
         {
 
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            // get the selected date 
+            DateTime selectedDate = dateTimePicker1.Value;
+            // get the selected date in string format
+            string selectedDateString = selectedDate.ToString("yyyy-MM-dd");
+
+            MessageBox.Show(selectedDateString);
+        }
     }
 }
